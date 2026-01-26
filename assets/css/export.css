@@ -1,0 +1,514 @@
+/* ===============================
+   LOCAL FONT: SPACE GROTESK
+   (STATIC WEIGHTS — GOOGLE PARITY)
+================================ */
+
+
+@font-face {
+  font-family: "Doto";
+  src: url("/assets/fonts/Doto-Black-Regular.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+/* =========================================================
+   SOFT IVORY SAAS THEME — FULL CSS
+========================================================= */
+
+:root {
+  --bg: #f7f7f4;         /* soft ivory */
+  --surface: #ffffff;     /* clean surface */
+  --surface-dark: #f3f3f0;
+  --text: #1a1a1a;        /* strong readable black */
+  --text-light: #616161;  /* softer gray */
+  --border: #dedede;      /* SaaS thin border */
+  --accent: #00ffc3;      /* your neon accent */
+  --accent-soft: #66ff7a;
+  --radius: 14px;
+}
+
+/* GLOBAL -------------------------------------------------- */
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.68;
+}
+
+.project-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 26px 80px;
+}
+
+.project-container {
+  padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+
+/* HEADER -------------------------------------------------- */
+
+.project-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  max-width: 680px;
+  font-size: 1.15rem;
+  color: var(--text-light);
+  margin-bottom: 40px;
+}
+
+/* SECTIONS ------------------------------------------------ */
+
+.section {
+  margin-top: 70px;
+}
+
+.section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 26px;
+  position: relative;
+}
+
+.section h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+.section p {
+  font-size: 1.08rem;
+  margin-bottom: 18px;
+}
+
+/* GRID & CARDS ------------------------------------------- */
+
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: all 0.25s ease;
+  width: auto;
+}
+
+
+/* FOOTER -------------------------------------------------- */
+
+.bottom-footer {
+  margin-top: 40px;
+  background: var(--surface);
+  padding: 12px 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+
+
+.section-divider {
+  width: 100%;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin: 8px 0 8px;
+  opacity: 0.9;
+}
+
+.subtitle {
+  margin-bottom: 10px !important; /* was 30–40px visually */
+}
+
+.section-divider {
+  margin-top: 22px;
+  margin-bottom: 18px;
+}
+
+.section-divider + p {
+  margin-top: 0;
+}
+
+.section:first-of-type {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.section-divider {
+  margin-top: 18px;
+  margin-bottom: 20px;
+}
+
+.section > p:first-of-type {
+  margin-top: 0 !important;
+}
+
+.date-tag {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===============================
+   FORM ELEMENTS
+================================ */
+
+input,
+textarea {
+  width: 100%;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+  padding: 12px 14px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(0, 255, 195, 0.15);
+}
+
+/* Fix textarea resize behavior */
+textarea {
+  resize: vertical;
+  min-height: 64px;
+}
+
+
+/* ===============================
+   FORM LAYOUT / SPACING
+================================ */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;              /* space between label and input */
+  margin-bottom: 18px;  /* space between fields */
+}
+
+.form-group label strong {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-group label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ===============================
+   PRIMARY BUTTON
+================================ */
+
+.button-primary {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+
+  padding: 12px 22px;
+  border-radius: 10px;
+    
+
+  background: ;
+  color: #00966f;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.button-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  opacity: 0.95;
+}
+
+.button-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.card > .button-primary {
+  margin-top: 8px;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+/* ===============================
+   FONT FIX
+================================ */
+
+body {
+  font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+}
+
+.doto {
+  font-family: "Doto", system-ui, sans-serif;
+  font-weight: 900;
+  font-size: clamp(28px, 6vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+
+@media (max-width: 640px) {
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-right {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===============================
+   CUSTOM FILE INPUT
+================================ */
+
+.file-upload {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-dark);
+  color: var(--text);
+
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.file-btn:hover {
+  background: #ececec;
+  border-color: var(--accent);
+}
+
+.file-name {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0;
+  color: var(--text-light);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.divider span {
+  white-space: nowrap;
+}
+
+.divider-sec {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0;
+  color: var(--text-light);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.divider-sec::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.divider-sec span {
+  white-space: nowrap;
+}
+
+
+
+/* Decrypt output safety */
+#out {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+
+
+/* ===============================
+   BACK TO TOOLS LINK
+================================ */
+
+.back-link {
+  position: fixed;
+  top: 16px;
+  left: 18px;
+
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-decoration: none;
+
+  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.85);
+
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+}
+
+.back-link:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+/* ===============================
+   PROJECT HEADER LAYOUT
+================================ */
+
+.project-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 10px;
+}
+
+
+/* Back button should not compete with primary actions */
+.project-header .back-link {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.project-header .back-link:hover {
+  opacity: 1;
+}
+
+/* FORCE back link to be non-sticky */
+.back-link {
+  position: static !important;
+}
+

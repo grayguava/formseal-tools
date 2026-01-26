@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>KV export</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Site theme -->
+  <link rel="stylesheet" href="/assets/css/export.css" />
+</head>
+
+<body class="home-page">
+
+<main class="project-container">
+
+  
+    <!-- HEADER -->
+  <header class="project-header">
+  <a href="/" class="back-link">← Back to Tools</a>
+
+    <h1 class="doto">KV Export</h1>
+  <p class="hero-subtitle">
+      Manually fetch encrypted KV blobs using an admin Ed25519 (base64url-safe) key.
+  </p>
+    
+  <div class="section-divider"></div>
+</header> 
+
+
+  
+  <section class="section">
+    <div class="grid" style="grid-template-columns: 1fr; gap: 24px;">
+
+      
+      <div class="card">
+
+        
+        
+        <div class="form-group">
+          
+            <strong>KV Export API URL</strong>
+            <input id="apiUrl" type="url" spellcheck="false" autocomplete="off"  autocapitalize="none" inputmode="url"  
+              placeholder="https://example.workers.dev/api/admin/export" />
+          
+        </div>
+
+        <div class="divider-sec">
+</div>
+        
+<div class="form-group">
+  <strong>Admin Private Key</strong>
+
+  <input
+    id="privKey"
+    type="password"
+    placeholder="Paste private key"
+    autocomplete="off"
+  />
+</div>
+
+
+
+<div class="form-group">
+  <strong>Admin Public Key (optional)</strong>
+
+  <input
+    id="pubKey"
+    type="text"
+    placeholder="Optional, for validation only"
+    autocomplete="off"
+  />
+</div>
+
+        
+        <div class="divider">
+  <span>or</span>
+</div>
+        
+<div class="form-group">
+  <strong>Upload ed25519 keypair .json</strong>
+
+  <div class="file-upload">
+    <input
+      id="keysFile"
+      type="file"
+      accept=".json"
+      hidden
+    />
+
+    <label for="keysFile" class="file-btn">
+      Choose file
+    </label>
+
+    <span id="fileName" class="file-name">
+      No file selected
+    </span>
+  </div>
+</div>
+
+
+        
+        <div class="form-group">
+          <label>
+            <strong>Blob count</strong>
+            <input id="limit" type="number" value="10" min="1" max="100" />
+          </label>
+        </div>
+
+        <button id="fetchBtn" class="button-primary">
+          Fetch & Download →
+        </button>
+
+      </div>
+
+    </div>
+  </section>
+
+  <pre id="status"></pre>
+
+</main>
+
+<footer class="bottom-footer">
+  <span>© 2026 FormSeal · Encrypt it yourself. Own the consequences.</span>
+</footer>
+
+
+<script src="/assets/js/vendor/libsodium.js"></script>
+<script type="module" src="/assets/js/kv/fetcher.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ed25519 keypair generator</title>
+
+  <!-- Site theme -->
+  <link rel="stylesheet" href="/assets/css/pages.css" />
+
+  <!-- libsodium and crypto -->
+  <script src="/assets/js/vendor/libsodium.js"></script>
+  <script src="/assets/js/crypto/ed25519-generate.js"></script>
+</head>
+
+<body class="home-page">
+
+<main class="project-container">
+
+    <!-- HEADER -->
+  <header class="project-header">
+  <a href="/" class="back-link">← Back to Tools</a>
+
+    <h1 class="doto">Ed25519 Keypair Generator</h1>
+  <p class="hero-subtitle">
+      Generate Ed25519 signing keypairs using libsodium. (base64URL only)
+  </p>
+    
+  <div class="section-divider"></div>
+</header>  
+  
+
+  <!-- GENERATE SECTION -->
+  <section class="section">
+    <div class="grid" style="grid-template-columns: 1fr;">
+
+      <div class="card">
+
+        <div class="form-group">
+          <strong>Public Key</strong>
+          <div class="grid" style="grid-template-columns: 1fr auto; gap: 10px;">
+            <input id="pub" type="text" readonly>
+            <button class="button-primary" onclick="copyKey('pub')">Copy</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <strong>Private Key</strong>
+          <div class="grid" style="grid-template-columns: 1fr auto; gap: 10px;">
+            <input id="priv" type="password" autocomplete="off" readonly>
+            <button class="button-primary" onclick="copyKey('priv')">Copy</button>
+          </div>
+        </div>
+
+        <div class="divider-sec"></div>
+        
+        <div class="grid"
+             style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 12px;
+                    margin-top: 20px;">
+          <button class="button-primary" onclick="generate()">Generate New Keypair</button>
+          
+          <div class="divider-sec"></div>
+          
+          <button class="button-primary" onclick="downloadJSON()">Download ed25519.json</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bottom-footer">
+  <span>© 2026 FormSeal · Encrypt it yourself. Own the consequences.</span>
+</footer>
+
+    
+    
+</body>
+</html>

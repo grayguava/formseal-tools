@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Decrypt ciphertext blob</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Site theme -->
+  <link rel="stylesheet" href="/assets/css/export.css" />
+
+  <!-- Libsodium -->
+  <script src="/assets/js/vendor/libsodium.js"></script>
+  <script src="/assets/js/crypto/x22519-ciphertext-decrypt.js"></script>
+</head>
+
+<body class="home-page">
+
+<main class="project-container">
+
+    <!-- HEADER -->
+  <header class="project-header">
+  <a href="/" class="back-link">← Back to Tools</a>
+
+    <h1 class="doto">Ciphertext blob decryptor</h1>
+  <p class="hero-subtitle">
+      Decrypt a single sealed contact message/ciphertext blob using the form’s X25519 keypair.
+  </p>
+    
+  <div class="section-divider"></div>
+</header>  
+
+  <section class="section">
+    <div class="grid" style="grid-template-columns: 1fr; gap: 24px;">
+
+      <div class="card">
+
+        <div class="form-group">
+          <strong>Ciphertext (Base64 URL-safe)</strong>
+          <textarea
+            id="cipher"
+            rows="5"
+            placeholder="Paste encrypted message from KV"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <strong>Form Public Key</strong>
+          <input
+            id="pub"
+            type="text"
+            placeholder="Base64 URL-safe public key"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="form-group">
+          <strong>Form Private Key</strong>
+          <input
+            id="priv"
+            type="password"
+            placeholder="Base64 URL-safe private key"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="divider">
+  <span>or</span>
+</div>
+        
+                <!-- KEYS.JSON UPLOAD (PRESERVED) -->
+        <div class="form-group">
+          <strong>Upload x25519 keypair .json</strong>
+
+          <div class="file-upload">
+            <input
+              id="keysFile"
+              type="file"
+              accept=".json"
+              hidden
+            />
+            
+            <label for="keysFile" class="file-btn">
+              Choose file
+            </label>
+
+            <span id="fileName">
+              No file selected
+            </span>
+          </div>
+        </div>
+        
+        <div class="divider-sec"></div>
+        
+        <button id="decBtn" class="button-primary">
+          Decrypt Message →
+        </button>
+
+      </div>
+
+                <div class="divider">
+  <span>Output</span>
+</div>
+        
+      <div class="card">
+        <strong>Decrypted Output</strong>
+        <div class="divider-sec"> </div>
+       <p
+  id="out"
+  class="hero-subtitle"
+  style="margin-top:12px; white-space:pre-wrap;"
+>
+  Output will appear here…
+</p>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="bottom-footer">
+  <span>© 2026 FormSeal · Encrypt it yourself. Own the consequences.</span>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>KV to CSV convert</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Site theme -->
+  <link rel="stylesheet" href="/assets/css/export.css" />
+</head>
+
+<body class="home-page">
+
+<main class="project-container">
+
+  
+    <!-- HEADER -->
+  <header class="project-header">
+  <a href="/" class="back-link">← Back to Tools</a>
+
+    <h1 class="doto">KV to CSV</h1>
+  <p class="hero-subtitle">
+      Decrypt encrypted KV exports locally and convert them to CSV using an X25519 (base64url-safe) key.
+  </p>
+    
+  <div class="section-divider"></div>
+</header>
+  
+
+  <section class="section">
+    <div class="grid" style="grid-template-columns: 1fr; gap: 24px;">
+
+      <div class="card">
+
+        <!-- X25519 PRIVATE KEY -->
+        <div class="form-group">
+          <strong>X25519 Private Key</strong>
+          <input
+            id="privKey"
+            type="password"
+            placeholder="Paste private key"
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- X25519 PUBLIC KEY (OPTIONAL) -->
+        <div class="form-group">
+          <strong>X25519 Public Key (optional)</strong>
+          <input
+            id="pubKey"
+            type="text"
+            placeholder="Optional, for validation only"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="divider"> <span>or</span> </div>
+
+        
+        <!-- KEYS.JSON UPLOAD (PRESERVED) -->
+        <div class="form-group">
+          <strong>Upload x25519 keypair .json</strong>
+
+          <div class="file-upload">
+            <input
+              id="keysFile"
+              type="file"
+              accept=".json"
+              hidden
+            />
+            
+            <label for="keysFile" class="file-btn">
+              Choose file
+            </label>
+
+            <span id="fileName">
+              No file selected
+            </span>
+          </div>
+        </div>
+
+        <div class="divider">
+  <span>REQUIRED</span>
+</div>
+        
+        <!-- JSONL EXPORT UPLOAD -->
+        <div class="form-group">
+          <strong>Upload encrypted export (.jsonl)</strong>
+
+          <div class="file-upload">
+            <input
+              id="jsonlFile"
+              type="file"
+              accept=".jsonl"
+              hidden
+            />
+
+            <label for="jsonlFile" class="file-btn">
+              Choose file
+            </label>
+
+            <span id="exportFileName">
+              No file selected
+            </span>
+          </div>
+        </div>
+
+        <!-- ACTION -->
+        <button id="decryptBtn" class="button-primary">
+          Decrypt & Download →
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <pre id="status"></pre>
+
+</main>
+
+<footer class="bottom-footer">
+  <span>© 2026 FormSeal · Encrypt it yourself. Own the consequences.</span>
+</footer>
+
+  <script src="/assets/js/vendor/libsodium.js"></script>
+  <script type="module" src="./app.js"></script>
+
+</body>
+</html>

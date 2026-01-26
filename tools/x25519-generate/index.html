@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>X25519 keypair generator</title>
+
+  <!-- Site theme -->
+  <link rel="stylesheet" href="/assets/css/pages.css" />
+
+  <!-- libsodium and crypto -->
+  <script src="/assets/js/vendor/libsodium.js"></script>
+  <script src="/assets/js/crypto/x25519-generate.js" defer></script>
+</head>
+
+<body class="home-page">
+
+<main class="project-container">
+
+  
+  <!-- HEADER -->
+  <header class="project-header">
+  <a href="/" class="back-link">← Back to Tools</a>
+
+    <h1 class="doto">X25519 Keypair Generator</h1>
+  <p class="hero-subtitle">
+      Generate and derive X25519 keypairs using libsodium. (base64URL only)
+  </p>
+    
+  <div class="section-divider"></div>
+</header>  
+
+
+  <!-- GENERATE SECTION -->
+  <section class="section">
+    <div class="grid" style="grid-template-columns: 1fr;">
+
+      <div class="card">
+
+        <div class="form-group">
+          <strong>Public Key</strong>
+          <div class="grid" style="grid-template-columns: 1fr auto; gap: 10px;">
+             <input id="pub" type="text" readonly>
+            <button class="button-primary" onclick="copyKey('pub')">Copy</button>
+          </div>
+        </div>
+
+          
+        <div class="form-group">
+          <strong>Private Key</strong>
+          <div class="grid" style="grid-template-columns: 1fr auto; gap: 10px;">
+            <input id="priv" type="password" autocomplete="off" readonly>
+            <button class="button-primary" onclick="copyKey('priv')">Copy</button>
+          </div>
+        </div>
+
+        <div class="divider-sec"></div>
+        
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 20px;">
+            <button class="button-primary" onclick="generate()">Genenerate New Keypair</button>
+            
+          <div class="divider-sec"></div>
+          
+          <button class="button-primary" onclick="downloadJSON()">Download x25519.json</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPORT SECTION -->
+  <section class="section">
+    <h2>Import Private Key</h2>
+
+    <div class="grid" style="grid-template-columns: 1fr;">
+
+      <div class="card">
+
+        <div class="form-group">
+          <strong>X25519 Private Key</strong>
+          <div class="grid" style="grid-template-columns: 1fr auto; gap: 10px;">
+            <input id="importPriv" placeholder="Paste private key here" />
+            <button class="button-primary" onclick="importKey()">Import</button>
+          </div>
+        </div>
+
+        <p id="importStatus"></p>
+
+        <div class="form-group">
+          <strong>Derived Public Key</strong>
+          <div class="grid" style="grid-template-columns: 1fr auto; gap: 10px;">
+            <input id="importPub" type="text" readonly placeholder="Derived public key will appear here" />
+            <button class="button-primary" onclick="copyKey('importPub')">Copy</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bottom-footer">
+  <span>© 2026 FormSeal · Your data, your problem - encrypted</span>
+</footer>
+
+    
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Validate Ed25519 keypair</title>
+
+  <!-- Site theme -->
+  <link rel="stylesheet" href="/assets/css/export.css" />
+
+  <!-- libsodium and crypto -->
+  <script src="/assets/js/vendor/libsodium.js"></script>
+    <script src="/assets/js/crypto/ed25519-validate.js"></script>
+</head>
+
+
+  
+<body class="home-page">
+  
+
+<main class="project-container">
+
+  <!-- HEADER -->
+  <header class="project-header">
+  <a href="/" class="back-link">← Back to Tools</a>
+
+  <h1 class="doto">Verify Ed25519 keypair</h1>
+  <p class="hero-subtitle">
+    Verify whether a public and private Ed25519 key belong to the same keypair.
+  </p>
+
+  <div class="section-divider"></div>
+</header>
+
+
+  <!-- VERIFY SECTION -->
+  <section class="section">
+    <div class="grid" style="grid-template-columns: 1fr;">
+
+      <div class="card">
+
+        <div class="form-group">
+          <strong>Public Key (Base64URL)</strong>
+          <input id="pub" placeholder="Paste public key" />
+        </div>
+
+           <div class="divider-sec"></div>
+          
+        <div class="form-group">
+          <strong>Private Key (Base64URL)</strong>
+          <input id="priv" type="password" placeholder="Paste private key" />
+        </div>
+
+           <div class="divider">
+  <span>or</span>
+</div>
+
+         <!-- KEYS.JSON UPLOAD (PRESERVED) -->
+        <div class="form-group">
+          <strong>Upload ed25519 keypair .json</strong>
+
+          <div class="file-upload">
+            <input
+              id="keysFile"
+              type="file"
+              accept=".json"
+              hidden
+            />
+            
+            <label for="keysFile" class="file-btn">
+              Choose file
+            </label>
+
+            <span id="fileName">
+              No file selected
+            </span>
+          </div>
+        </div>
+
+        <div class="divider-sec"></div>
+ 
+        <button id="verifyBtn" class="button-primary">
+          Verify Keypair
+        </button>
+
+        <p id="result" style="margin-top:14px;font-weight:600;"></p>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bottom-footer">
+  <span>© 2026 FormSeal · Encrypt it yourself. Own the consequences.</span>
+</footer>
+  
+  
+</body>
+</html>
