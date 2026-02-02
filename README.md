@@ -1,131 +1,97 @@
-# FormSeal tools
+# FormSeal tools (Archived)
 
-FormSeal tools provides **operator-side utilities** for managing and inspecting FormSeal deployments.
+⚠️ **This repository is archived and no longer in active use.**
 
-These tools are designed to help operators:
-- generate and validate cryptographic keys in the correct formats
-- inspect and decrypt encrypted submissions offline
-- export encrypted submissions from KV
-- convert stored data into analysis-friendly formats
-
-This repository complements the FormSeal pipeline but is **not part of the ingestion path**.
+This repository contains **historical tooling and experiments** related to early
+operator-side workflows for FormSeal. It is preserved for reference only and is
+not maintained, updated, or recommended for current deployments.
 
 ---
 
-## What this repository is
+## Status
 
-This repository contains **utilities**, not services.
+- ❌ Not actively developed
+- ❌ Not used by current FormSeal deployments
+- ❌ No guarantees of correctness or security
+- ✅ Kept for historical and educational reference
 
-- No backend endpoints
-- No ingestion logic
-- No plaintext handling on the server
-- No admin dashboard
+If you are operating FormSeal today, **do not use this repository**.
 
-All tooling is intended to be:
-- explicit
-- operator-controlled
-- format-safe
-- usable offline where possible
+---
+
+## Why this repository was archived
+
+This repository represents an **earlier phase** of FormSeal’s operator tooling,
+including browser-based utilities and exploratory workflows.
+
+Over time, the FormSeal architecture evolved toward:
+- stricter trust boundaries
+- local, offline-first administration
+- simpler and more auditable operational models
+
+As part of that evolution, the tooling in this repository was superseded by a
+cleaner, purpose-built admin toolchain hosted separately.
+
+Archiving this repository avoids:
+- misleading operators
+- accidental use of outdated workflows
+- security assumptions that no longer hold
+
+---
+
+## Current admin tooling (use this instead)
+
+The **active and supported** administrative tooling for FormSeal lives here:
+
+👉 **FormSeal Sync**  
+https://github.com/grayguava/formseal-sync
+
+FormSeal Sync provides:
+- controlled export of encrypted submissions via same-origin APIs
+- local, offline decryption using operator-held private keys
+- scriptable, operator-driven workflows
+- no browser-based admin attack surface
+
+That repository reflects the **current and intended** operational model.
 
 ---
 
 ## Relationship to FormSeal
 
-FormSeal tools is built to operate on data produced by the **FormSeal pipeline**.
+- **FormSeal (core)** handles browser-side encryption, ingestion, and blind storage
+- **FormSeal Sync** handles export, decryption, and administrative inspection
+- **This repository** is legacy and no longer part of the system
 
-- FormSeal handles secure ingestion and storage
-- FormSeal Tools handle inspection and analysis after submission
-
-For the ingestion pipeline, see:
-[FormSeal  repository on GitHub](https://github.com/grayguava/formseal)
-
-
-This separation is intentional to keep the pipeline small and auditable.
+For the active ingestion pipeline, see:
+https://github.com/grayguava/formseal
 
 ---
 
-## Tool categories
+## Contents of this repository
 
-### Key utilities
-Helpers for generating and validating cryptographic keys used by FormSeal.
+This repository may include:
+- browser-based cryptographic helpers
+- experimental export and conversion tools
+- early inspection utilities
+- deprecated workflows
 
-- X25519 keypair generation (for client-side encryption targets)
-- Ed25519 keypair generation and validation (where applicable)
-- Format enforcement (base64url, padding rules)
-
-These tools exist to prevent common operator mistakes related to key formats.
-
----
-
-### Submission inspection
-Utilities for working with encrypted submissions.
-
-- Offline decryption using operator-held private keys
-- Payload decoding and validation
-- JSONL inspection
-
-All decryption happens **locally**.  
-The backend never sees plaintext.
+These are retained **as historical artifacts only**.
 
 ---
 
-### KV interaction
-Tools for interacting with stored submissions.
+## Security notice
 
-- Encrypted submission export from Cloudflare KV
-- Read-only access patterns
-- No mutation of stored data
+Do not assume:
+- correctness of cryptographic implementations
+- alignment with current FormSeal threat models
+- compatibility with modern FormSeal deployments
 
-Only export tools make network requests.  
-All other tooling can be used fully offline.
-
----
-
-### Data conversion
-Helpers for transforming stored data into usable formats.
-
-- JSONL → CSV conversion
-- Field normalization for analysis
-- Format-preserving transforms
-
-These tools are intended for post-processing and review.
-
----
-
-## Security model
-
-- Operators are responsible for key custody
-- Private keys never leave the operator environment
-- No secrets are embedded in this repository
-- No automatic key generation or storage is performed
-
-These tools reduce **format and handling errors**, not operational responsibility.
-
----
-
-## What this repository does NOT do
-
-- No submission ingestion
-- No authentication or login system
-- No abuse mitigation
-- No server-side crypto
-- No hosted services
-
-Those concerns are handled by FormSeal or by the operator.
-
----
-
-## Usage expectations
-
-This repository assumes:
-- you already run or understand FormSeal
-- you control the relevant private keys
-- you understand the implications of decrypting stored data
-
-These tools are helpers, not guardrails.
+No security updates will be provided for this repository.
 
 ---
 
 ## License
 
 MIT License.
+
+Archival status does not change licensing terms.
